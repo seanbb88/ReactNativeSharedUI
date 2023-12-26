@@ -1,5 +1,5 @@
 {
-  "name": "reactnativesharedui",
+  "name": "@browntreebear/reactnativesharedui",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
@@ -20,5 +20,16 @@
   "devDependencies": {
     "@babel/core": "^7.20.0"
   },
-  "private": true
+  "private": true,
+  "description": "shared components for mobile development",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seanbb88/ReactNativeSharedUI.git"
+  },
+  "author": "Sean Brown",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seanbb88/ReactNativeSharedUI/issues"
+  },
+  "homepage": "https://github.com/seanbb88/ReactNativeSharedUI#readme"
 }
