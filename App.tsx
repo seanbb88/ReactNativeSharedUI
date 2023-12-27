@@ -1,11 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import AppButton from './components/Button/Button';
 
-export function App() {
+export default function App() {
+
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <AppButton onPress={() => { }} text="Button" buttonStyle={{ backGroundColor: "#E0E0E0", borderColor: "#255433", textColor: '#255433' }} />
     </View>
   );
 }
@@ -13,10 +14,8 @@ export function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 60,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
   },
 });
-
-export { default } from './.storybook';
