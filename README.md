@@ -8,16 +8,45 @@ To get started, you can install the package via npm:
 
 ```bash
 npm install @browntreebear/reactnativesharedui
+```
 
-### Available Scripts
-
-You can use the following scripts in your project:
+## Available Scripts
 
 - **start:** Start the Expo development server.
-  ```bash
-  npm start
+```bash
+npm start
+```
 
-- **android:** Start the Expo development server - in Android.
-  ```bash
-  npm android
+- **android:** Start the Expo development server in Android.
+```bash
+npm run android
+```
 
+- **ios:** Start the Expo development server in ios.
+```bash
+npm run ios
+```
+
+- **web:** Start the Expo development server on the web.
+```bash
+npm run web
+```
+
+- **type-check:** Run typescript check.
+```bash
+npm run type-check
+```
+
+## Available Components
+
+- **Buttons:**.
+```bash
+import { AppButton } from '@browntreebear/reactnativesharedui/components'
+
+<AppButton 
+    optionalStyling={{ alignSelf: 'center' }}  // <- Some optional styling you can send to the button
+    text="Logout" // <- Button Text
+    onPress={() => {}} // <- Button action
+    buttonStyle={{ backGroundColor: "#255433", textColor: "#E0E0E0" }} // <- button style
+    />
+```
