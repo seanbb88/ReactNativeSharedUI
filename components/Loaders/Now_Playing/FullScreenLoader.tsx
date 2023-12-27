@@ -1,15 +1,22 @@
 import React from 'react';
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, ActivityIndicator, StyleSheet, Modal } from 'react-native';
 
 interface FullScreenLoaderProps {
     loaderColor?: string
+    visible: boolean // A prop to control the visibility of the loader
 }
 
-export const FullScreenLoader = ({ loaderColor = "#007AFF" }: FullScreenLoaderProps) => {
+export const FullScreenLoader = ({ loaderColor = "#007AFF", visible }: FullScreenLoaderProps) => {
     return (
-        <View style={styles.overlay}>
-            <ActivityIndicator size={'large'} color={loaderColor} />
-        </View>
+        <Modal
+            transparent
+            animationType="none"
+            visible={visible}
+        >
+            <View style={styles.overlay}>
+                <ActivityIndicator size={'large'} color={loaderColor} />
+            </View>
+        </Modal>
     );
 };
 
@@ -19,11 +26,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(0, 0, 0, 0.5)', // Gray and transparent background
         alignItems: 'center',
         justifyContent: 'center',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
     },
 });
 
