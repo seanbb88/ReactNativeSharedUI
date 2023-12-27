@@ -12,14 +12,14 @@ interface AppButtonProps {
     buttonStyle?: ButtonStyles;
     onPress: () => void;
     text: string;
-    disabled: boolean;
+    disabled?: boolean;
     optionalStyling?: ViewStyle;
 }
 
 export const AppButton = ({
     onPress,
     text,
-    disabled,
+    disabled = false,
     buttonStyle = { backGroundColor: 'white', textColor: 'black' },
     optionalStyling
 }: AppButtonProps) => {
