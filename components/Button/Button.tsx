@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, ViewStyle } from 'react-native';
 
 interface ButtonStyles {
     // These values actually represent a hex color or standard color name
@@ -12,12 +12,14 @@ interface AppButtonProps {
     buttonStyle?: ButtonStyles;
     onPress: () => void;
     text: string;
+    optionalStyling?: ViewStyle;
 }
 
 export const AppButton = ({
     onPress,
     text,
     buttonStyle = { backGroundColor: 'white', textColor: 'black' },
+    optionalStyling
 }: AppButtonProps) => {
     const { backGroundColor, textColor, borderColor } = buttonStyle;
 
@@ -25,6 +27,7 @@ export const AppButton = ({
         <TouchableOpacity
             style={[
                 styles.container,
+                optionalStyling && optionalStyling,
                 {
                     backgroundColor: backGroundColor,
                     borderColor: borderColor,
