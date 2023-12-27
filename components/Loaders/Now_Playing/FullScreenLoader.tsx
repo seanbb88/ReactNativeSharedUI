@@ -26,6 +26,11 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(0, 0, 0, 0.5)', // Gray and transparent background
         alignItems: 'center',
         justifyContent: 'center',
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
     },
 });
 

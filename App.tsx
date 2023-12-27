@@ -12,7 +12,7 @@ export default function App() {
       {/* LOADERS */}
       {/* <PaqeLoader /> */}
       {/* <ApplicationLoader /> */}
-      {/* <FullScreenLoader /> */}
+      {/* <FullScreenLoader visible={true} /> */}
     </View>
   );
 }
