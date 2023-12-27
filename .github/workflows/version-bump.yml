@@ -25,6 +25,7 @@ jobs:
 
       - name: Push changes
         run: |
+          git remote set-url origin https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git push
 
       - name: Publish to npm (optional)
