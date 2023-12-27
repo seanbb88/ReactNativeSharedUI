@@ -39,7 +39,7 @@ npm run type-check
 
 ## Available Components
 
-- **Buttons:**.
+-**Buttons**
 ```bash
 import { AppButton } from '@browntreebear/reactnativesharedui/components'
 
@@ -48,5 +48,14 @@ import { AppButton } from '@browntreebear/reactnativesharedui/components'
     text="Logout" // <- Button Text
     onPress={() => {}} // <- Button action
     buttonStyle={{ backGroundColor: "#255433", textColor: "#E0E0E0" }} // <- button style
-    />
+/>
+```
+
+-**Loaders**
+```bash
+import { FullScreenLoader, ApplicationLoader, PageLoader } from '@browntreebear/reactnativesharedui/components'
+
+<ApplicationLoader/>
+<PageLoader loaderColor="white"/>
+<FullScreenLoader loaderColor="grey" visible={true}/>
 ```
