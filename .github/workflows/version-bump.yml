@@ -1,0 +1,32 @@
+name: Version Bump
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Bump version
+        run: |
+          # Increment the version (e.g., from 1.0.4 to 1.0.5)
+          npm version patch -m "Bump version to %s [skip ci]"
+
+      - name: Push changes
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git push
+
+      - name: Publish to npm (optional)
+        if: success()
+        run: |
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
