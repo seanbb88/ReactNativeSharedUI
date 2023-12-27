@@ -27,13 +27,13 @@ export const AppButton = ({
         <TouchableOpacity
             style={[
                 styles.container,
-                optionalStyling && optionalStyling,
                 {
                     backgroundColor: backGroundColor,
                     borderColor: borderColor,
                     borderWidth: 1,
                     alignSelf: 'flex-start',
                 },
+                optionalStyling && optionalStyling,
             ]}
             onPress={onPress}
             activeOpacity={0.8}
