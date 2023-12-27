@@ -1,10 +1,14 @@
 import React from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 
-export const FullScreenLoader = () => {
+interface FullScreenLoaderProps {
+    loaderColor?: string
+}
+
+export const FullScreenLoader = ({ loaderColor = "#007AFF" }: FullScreenLoaderProps) => {
     return (
         <View style={styles.overlay}>
-            <ActivityIndicator size={'large'} color="#255433" />
+            <ActivityIndicator size={'large'} color={loaderColor} />
         </View>
     );
 };
