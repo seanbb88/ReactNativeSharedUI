@@ -6,7 +6,6 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-
       <AppButton onPress={() => { }} text="Button" buttonStyle={{ backGroundColor: "#E0E0E0", borderColor: "#255433", textColor: '#255433' }} />
     </View>
   );
