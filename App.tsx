@@ -1,19 +1,39 @@
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Dimensions } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { Navigation } from 'react-native-navigation';
 
 // AVAILABLE COMPONENTS - HIDE/SHOW BY COMMENTING THEM OUT
 import AppButton from './components/Button/Button';
 import { ApplicationLoader, FullScreenLoader, PaqeLoader } from './components';
-import { FadeView, LiquidSwipe } from './animations';
-import { runOnUI } from 'react-native-reanimated';
-import { useEffect } from 'react';
+import { TabBar, FadeView, LiquidSwipe } from './animations';
+import {
+  faCoffee,
+  faTrash,
+  faUser,
+  faList,
+  faReply,
+} from '@fortawesome/free-solid-svg-icons';
+
+const tabs = [
+  {
+    name: 'coffee',
+    item: faCoffee,
+  },
+  {
+    name: 'list',
+    item: faList,
+  },
+  {
+    name: 'reply',
+    item: faReply,
+  },
+];
 
 export default function App() {
 
 
-  const handleShitHere = (e: any) => {
-    'worklet'
-    console.log("E BITCH", e)
+  const handleTabbyShit = (index: number) => {
+    console.log("index we be at", index)
   }
 
   return (
@@ -26,10 +46,11 @@ export default function App() {
         {/* LISTS */}
         {/* <SwipeableList /> */}
 
+        {/* TABS */}
+        <TabBar tabs={tabs} backGroundColor="#255433" onTabChange={handleTabbyShit} />
 
 
-
-        <LiquidSwipe data="hey" onChange={handleShitHere} />
+        {/* <LiquidSwipe /> */}
 
         {/* LOADERS */}
         {/* <PaqeLoader /> */}

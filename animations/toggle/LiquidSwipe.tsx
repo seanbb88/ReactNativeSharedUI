@@ -7,7 +7,6 @@ import Animated, {
     interpolate,
     Extrapolation,
     withSpring,
-    runOnUI,
 } from 'react-native-reanimated';
 import {
     PanGestureHandler,
@@ -28,13 +27,8 @@ const styles = StyleSheet.create({
     },
 });
 
-interface LiquidSwipeProps {
-    data: any // this represents the value you are altering from left to right // we will send that value 
-}
 
-
-
-export const LiquidSwipe = ({ data, onChange }: { data: any, onChange: (e: any) => void }) => {
+export const LiquidSwipe = () => {
     const isBack = useSharedValue(false);
     const centerY = useSharedValue(initialWaveCenter);
     const progress = useSharedValue(0);
@@ -46,9 +40,7 @@ export const LiquidSwipe = ({ data, onChange }: { data: any, onChange: (e: any) 
     };
 
 
-    function onPress() {
-        runOnUI(onChange)('Howdy');
-    }
+
 
 
     const handler = useAnimatedGestureHandler<
@@ -87,7 +79,7 @@ export const LiquidSwipe = ({ data, onChange }: { data: any, onChange: (e: any) 
             progress.value = withSpring(goBack ? 1 : 0, {}, () => {
                 isBack.value = goBack;
             });
-            onPress()
+
         },
     });
 
