@@ -162,7 +162,7 @@ function Bar({ tabs, backgroundColor, handleClick }: { tabs: TabProps[], backgro
 const tabBarStyles = StyleSheet.create({
     container: {
         width,
-        height,
+        height: 64,
         flex: 1,
     },
 });
