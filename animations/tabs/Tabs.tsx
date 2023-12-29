@@ -165,6 +165,10 @@ const tabBarStyles = StyleSheet.create({
         height: 64,
         flex: 1,
     },
+    dummyPusher: {
+        flex: 1,
+        height: 300,
+    },
 });
 
 
@@ -173,6 +177,7 @@ export default function TabBar({ tabs, backGroundColor = 'black', onTabChange }:
     if (!tabs) return null;
     return (
         <View style={[tabBarStyles.container, { backgroundColor: backGroundColor }]}>
+            <View style={tabBarStyles.dummyPusher} />
             <Bar tabs={tabs} backgroundColor={backGroundColor} handleClick={onTabChange} />
         </View>
     );
