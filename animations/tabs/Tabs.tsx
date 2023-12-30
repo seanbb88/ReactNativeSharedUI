@@ -18,7 +18,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { NOW_PLAYING_TAB_COUNT } from '../../constants';
 import { TabButton } from './TabButton';
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 interface TabBarProps {
     tabs: TabProps[],
@@ -32,7 +32,7 @@ interface TabProps {
 }
 
 type ActiveIconProps = {
-    item: IconProp;
+    item: any;
     index: number;
     activeIndex: Animated.SharedValue<number>;
     width: number;
@@ -103,7 +103,7 @@ function ActiveIcon({ item, index, activeIndex }: ActiveIconProps) {
     return (
         <Animated.View style={[styles.circleIcon, circleIconStyle]}>
             <View style={styles.activeIcon}>
-                <FontAwesomeIcon icon={item} color="black" size={25} />
+                {item}
             </View>
         </Animated.View>
     );

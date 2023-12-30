@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, Dimensions } from 'react-native';
+import { StyleSheet, View, Text, Dimensions, ScrollView } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Navigation } from 'react-native-navigation';
 
@@ -6,28 +6,25 @@ import { Navigation } from 'react-native-navigation';
 import AppButton from './components/Button/Button';
 import { ApplicationLoader, FullScreenLoader, PaqeLoader } from './components';
 import { TabBar, FadeView, LiquidSwipe } from './animations';
-import {
-  faCoffee,
-  faTrash,
-  faUser,
-  faList,
-  faReply,
-} from '@fortawesome/free-solid-svg-icons';
+
+import Iconicons from '@expo/vector-icons/Ionicons'
+
 
 const tabs = [
   {
-    name: 'coffee',
-    item: faCoffee,
+    name: 'Home',
+    item: <Iconicons color="black" size={25} name="home-outline" />,
   },
   {
-    name: 'list',
-    item: faList,
+    name: 'MyList',
+    item: <Iconicons color="black" size={25} name="list-outline" />,
   },
   {
-    name: 'reply',
-    item: faReply,
+    name: 'Settings',
+    item: <Iconicons color="black" size={25} name="people-outline" />,
   },
 ];
+
 
 export default function App() {
 
@@ -47,7 +44,10 @@ export default function App() {
         {/* <SwipeableList /> */}
 
         {/* TABS */}
-        <TabBar tabs={tabs} backGroundColor="#255433" onTabChange={handleTabbyShit} />
+        <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>
+          <TabBar tabs={tabs} backGroundColor="#255433" onTabChange={handleTabbyShit} />
+        </ScrollView>
+
 
 
         {/* <LiquidSwipe /> */}

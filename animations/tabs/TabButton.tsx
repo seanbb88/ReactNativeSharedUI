@@ -11,10 +11,9 @@ import {
     TouchableWithoutFeedback,
 } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 type ButtonProps = {
-    item: IconProp;
+    item: any;
     index: number;
     activeIndex: Animated.SharedValue<number>;
     width: number;
@@ -57,7 +56,7 @@ export function TabButton({
         }}>
             <View style={styles.tab}>
                 <Animated.View style={staticIconStyle}>
-                    <FontAwesomeIcon icon={item} color="black" size={25} />
+                    {item}
                 </Animated.View>
             </View>
         </TouchableWithoutFeedback>
