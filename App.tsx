@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, Dimensions, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useFonts } from 'expo-font';
 // AVAILABLE COMPONENTS - HIDE/SHOW BY COMMENTING THEM OUT
