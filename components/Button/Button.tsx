@@ -33,6 +33,7 @@ export const AppButton = ({
                     backgroundColor: backGroundColor,
                     borderColor: borderColor,
                     borderWidth: 1,
+                    alignItems: "center",
                     alignSelf: 'flex-start',
                 },
                 optionalStyling && optionalStyling,
