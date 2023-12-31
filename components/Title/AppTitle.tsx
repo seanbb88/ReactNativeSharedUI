@@ -13,7 +13,7 @@ export const AppTitle = ({
 }: AppTitleProps) => {
 
     return (
-        <Text style={{ color, fontSize, fontFamily: "Oswald-VariableFont_wght" }}>{title}</Text>
+        <Text style={{ color, fontSize, fontFamily: "Oswald" }}>{title}</Text>
     );
 };
 

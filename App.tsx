@@ -1,56 +1,61 @@
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useFonts } from 'expo-font';
-// AVAILABLE COMPONENTS - HIDE/SHOW BY COMMENTING THEM OUT
-import AppButton from './components/Button/Button';
-import { ApplicationLoader, FullScreenLoader, PaqeLoader } from './components';
-import { TabBar, FadeView, LiquidSwipe } from './animations';
+import { useCallback, useEffect, useState } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
+import * as Font from 'expo-font';
+//import Iconicons from '@expo/vector-icons/Ionicons'
 
-import Iconicons from '@expo/vector-icons/Ionicons'
-import { useCallback } from 'react';
+// AVAILABLE COMPONENTS - HIDE/SHOW BY COMMENTING THEM OUT
+// import AppButton from './components/Button/Button';
+import { AppTitle, ApplicationLoader, FullScreenLoader, PaqeLoader } from './components';
+// import { TabBar, FadeView, LiquidSwipe } from './animations';
 
 
-const tabs = [
-  {
-    name: 'Home',
-    item: <Iconicons color="black" size={25} name="home-outline" />,
-  },
-  {
-    name: 'MyList',
-    item: <Iconicons color="black" size={25} name="list-outline" />,
-  },
-  {
-    name: 'Settings',
-    item: <Iconicons color="black" size={25} name="people-outline" />,
-  },
-];
+
+// const tabs = [
+//   {
+//     name: 'Home',
+//     item: <Iconicons color="black" size={25} name="home-outline" />,
+//   },
+//   {
+//     name: 'MyList',
+//     item: <Iconicons color="black" size={25} name="list-outline" />,
+//   },
+//   {
+//     name: 'Settings',
+//     item: <Iconicons color="black" size={25} name="people-outline" />,
+//   },
+// ];
+
+let customFonts = {
+  'Oswald': require('./assets/fonts/Oswald-VariableFont_wght.ttf'),
+};
 
 
 export default function App() {
+  const [fontsLoaded, setFontsLoaded] = useState(false);
 
-  const [fontsLoaded] = useFonts({
-    'Inter-Black': require('./assets/fonts/Oswald-VariableFont_wght.ttf'),
-  });
-
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
-      await SplashScreen.hideAsync();
+  useEffect(() => {
+    async function loadFonts() {
+      await Font.loadAsync(customFonts);
+      setFontsLoaded(true);
     }
-  }, [fontsLoaded]);
 
-  if (!fontsLoaded) {
-    return null;
-  }
-
+    loadFonts();
+  }, []);
 
 
   const handleTabbyShit = (index: number) => {
     console.log("index we be at", index)
   }
 
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
-    <GestureHandlerRootView onLayout={onLayoutRootView} style={{ flex: 1 }}>
+    <GestureHandlerRootView style={{ flex: 1 }}>
       <View style={styles.container}>
         {/* BUTTONS */}
         {/* 
@@ -60,11 +65,11 @@ export default function App() {
         {/* <SwipeableList /> */}
 
         {/* TABS */}
-        <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>
-          <TabBar tabs={tabs} backGroundColor="#255433" onTabChange={handleTabbyShit} />
-        </ScrollView>
+        {/* <TabBar tabs={tabs} backGroundColor="#255433" onTabChange={handleTabbyShit} /> */}
 
 
+        {/* TITLES */}
+        <AppTitle title="Now Paying" />
 
         {/* <LiquidSwipe /> */}
 
