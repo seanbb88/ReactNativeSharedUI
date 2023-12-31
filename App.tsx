@@ -1,12 +1,14 @@
 import { StyleSheet, View, Text, Dimensions, ScrollView } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-
+import { useFonts } from 'expo-font';
 // AVAILABLE COMPONENTS - HIDE/SHOW BY COMMENTING THEM OUT
 import AppButton from './components/Button/Button';
 import { ApplicationLoader, FullScreenLoader, PaqeLoader } from './components';
 import { TabBar, FadeView, LiquidSwipe } from './animations';
+import * as SplashScreen from 'expo-splash-screen';
 
 import Iconicons from '@expo/vector-icons/Ionicons'
+import { useCallback } from 'react';
 
 
 const tabs = [
@@ -27,13 +29,28 @@ const tabs = [
 
 export default function App() {
 
+  const [fontsLoaded] = useFonts({
+    'Inter-Black': require('./assets/fonts/Oswald-VariableFont_wght.ttf'),
+  });
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
+
 
   const handleTabbyShit = (index: number) => {
     console.log("index we be at", index)
   }
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView onLayout={onLayoutRootView} style={{ flex: 1 }}>
       <View style={styles.container}>
         {/* BUTTONS */}
         {/* 
