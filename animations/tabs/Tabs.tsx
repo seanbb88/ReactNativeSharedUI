@@ -11,10 +11,8 @@ import {
     Dimensions,
     StyleSheet,
 } from 'react-native';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import Svg, { Path } from 'react-native-svg';
 import * as shape from 'd3-shape';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { NOW_PLAYING_TAB_COUNT } from '../../constants';
 import { TabButton } from './TabButton';
 

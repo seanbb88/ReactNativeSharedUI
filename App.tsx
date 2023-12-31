@@ -1,6 +1,5 @@
 import { StyleSheet, View, Text, Dimensions, ScrollView } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { Navigation } from 'react-native-navigation';
 
 // AVAILABLE COMPONENTS - HIDE/SHOW BY COMMENTING THEM OUT
 import AppButton from './components/Button/Button';

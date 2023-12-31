@@ -10,7 +10,6 @@ import {
     StyleSheet,
     TouchableWithoutFeedback,
 } from 'react-native';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
 type ButtonProps = {
     item: any;
