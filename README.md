@@ -17,19 +17,9 @@ npm install @browntreebear/reactnativesharedui
 npm start
 ```
 
-- **android:** Start the Expo development server in Android.
-```bash
-npm run android
-```
-
 - **ios:** Start the Expo development server in ios.
 ```bash
 npm run ios
-```
-
-- **web:** Start the Expo development server on the web.
-```bash
-npm run web
 ```
 
 - **type-check:** Run typescript check.
@@ -44,7 +34,8 @@ npm run type-check
 import { AppButton } from '@browntreebear/reactnativesharedui/components'
 
 <AppButton 
-    optionalStyling={{ alignSelf: 'center' }}  // <- Some optional styling you can send to the button
+    // Some optional styling you can send to the button
+    optionalStyling={{ alignSelf: 'center' }}  
     text="Logout" // <- Button Text
     onPress={() => {}} // <- Button action
     buttonStyle={{ backGroundColor: "#255433", textColor: "#E0E0E0" }} // <- button style
@@ -53,9 +44,59 @@ import { AppButton } from '@browntreebear/reactnativesharedui/components'
 
 -**Loaders**
 ```bash
-import { FullScreenLoader, ApplicationLoader, PageLoader } from '@browntreebear/reactnativesharedui/components'
+import { FullScreenLoader, ApplicationLoader, PageLoader } 
+from '@browntreebear/reactnativesharedui/components'
 
 <ApplicationLoader/>
 <PageLoader loaderColor="white"/>
 <FullScreenLoader loaderColor="grey" visible={true}/>
 ```
+
+-**TabBar**
+- note: this was built with routing built on @react-navigation/native
+    -make sure content above (each tab) the nav bar has a style of flex: 1 to push the navbar to the bottom of the page
+
+```bash
+import { TabBar } 
+from '@browntreebear/reactnativesharedui/animations'
+
+const tabs = [
+    {
+        name: 'Home',
+        item: Any React node icon works here. . I use Iconicons,
+    },
+    {
+        name: 'MyList',
+        item: <Iconicons color="black" size={25} name="list-outline" />,
+    },
+    {
+        name: 'Settings',
+        item: <Iconicons color="black" size={25} name="people-outline" />,
+    }
+
+<NavigationContent>
+    <View style={{ flex: 1 }}>
+        {state.routes.map((route, i) => {
+            const isHidden = shouldHideTabBar(route.name);
+            const isCurrentTab = i === state.index;
+                return (
+                    <View
+                        key={route.key}
+                        style={[
+                            StyleSheet.absoluteFill,
+                        { display: isHidden ? 'none' : 'flex' },
+                        { zIndex: isCurrentTab ? 1 : 0 },
+                    ]}
+                    >
+                    {isCurrentTab && descriptors[route.key].render()}
+                </View>
+            )
+        })}
+    </View>
+    <View style={styles.tabBar}>
+        <TabBar tabs={tabs} onTabChange={handleTabNavigation} backGroundColor="#10001A" />
+    </View>
+</NavigationContent>
+```
+
+![Tab Navigation Component](./assets/demo/tab_demo.gif)
