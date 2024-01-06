@@ -42,16 +42,6 @@ import { AppButton } from '@browntreebear/reactnativesharedui/components'
 />
 ```
 
--**Loaders**
-```bash
-import { FullScreenLoader, ApplicationLoader, PageLoader } 
-from '@browntreebear/reactnativesharedui/components'
-
-<ApplicationLoader/>
-<PageLoader loaderColor="white"/>
-<FullScreenLoader loaderColor="grey" visible={true}/>
-```
-
 -**TabBar**
 - note: this was built with routing built on @react-navigation/native
     -make sure content above (each tab) the nav bar has a style of flex: 1 to push the navbar to the bottom of the page
@@ -100,3 +90,14 @@ const tabs = [
 ```
 
 ![Tab Navigation Component](./assets/demo/tab_demo.gif)
+
+-**Loaders**
+```bash
+import { FullScreenLoader, ApplicationLoader, PageLoader } 
+from '@browntreebear/reactnativesharedui/components'
+
+<ApplicationLoader/>
+<PageLoader loaderColor="white"/>
+<FullScreenLoader loaderColor="grey" visible={true}/>
+```
+
