@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
         width: tabWidth,
         top: -8,
         left: tabWidth / 2,
-        height: 64,
+        height: 80,
         justifyContent: 'center',
         alignItems: 'center',
         zIndex: 5,
@@ -134,7 +134,7 @@ function Bar({ tabs, backgroundColor, handleClick }: { tabs: TabProps[], backgro
                         key={`fg-${index}`}
                     />
                 ))}
-                <Svg width={tabWidth * 2} height={64}>
+                <Svg width={tabWidth * 2} height={80}>
                     <Path fill={backgroundColor} {...{ d }} />
                 </Svg>
             </Animated.View>
@@ -160,7 +160,7 @@ function Bar({ tabs, backgroundColor, handleClick }: { tabs: TabProps[], backgro
 const tabBarStyles = StyleSheet.create({
     container: {
         width,
-        height: 64,
+        height: 80,
         flex: 1,
     },
     dummyPusher: {
