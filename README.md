@@ -10,6 +10,11 @@ To get started, you can install the package via npm:
 npm install @browntreebear/reactnativesharedui
 ```
 
+NOTE: any component used from the folder /animations (such as TabBar) has a react-native-gesture-handler dependency. 
+You must wrap your overall application in the GestureHandlerRootView in order to have the animations work properly. 
+React Native Gesture Handler -> [documentation](https://docs.swmansion.com/react-native-gesture-handler/docs/fundamentals/installation)
+
+
 ## Available Scripts
 
 - **start:** Start the Expo development server.
