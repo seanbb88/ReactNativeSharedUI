@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet, ViewStyle } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, ViewStyle, View } from 'react-native';
 
 interface ButtonStyles {
     // These values actually represent a hex color or standard color name
@@ -47,8 +47,8 @@ export const AppButton = ({
         >
             <Text style={[
                 { color: textColor, fontSize: textSize },
-                isLink ? { borderBottomColor: textColor, borderWidth: 1 } : null
             ]}>{text}</Text>
+            {isLink && <View style={[styles.borderBottom, { backgroundColor: textColor }]}></View>}
         </TouchableOpacity>
     );
 };
@@ -62,6 +62,10 @@ const styles = StyleSheet.create({
     linkButton: {
         backgroundColor: 'transparent',
         borderWidth: 0
+    },
+    borderBottom: {
+        width: '100%',
+        height: 1,
     }
 });
 
