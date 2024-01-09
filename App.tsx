@@ -7,7 +7,7 @@ import * as Font from 'expo-font';
 //import Iconicons from '@expo/vector-icons/Ionicons'
 
 // AVAILABLE COMPONENTS - HIDE/SHOW BY COMMENTING THEM OUT
-// import AppButton from './components/Button/Button';
+import AppButton from './components/Button/Button';
 import { AppTitle, ApplicationLoader, FullScreenLoader, PaqeLoader } from './components';
 // import { TabBar, FadeView, LiquidSwipe } from './animations';
 
@@ -70,6 +70,8 @@ export default function App() {
 
         {/* TITLES */}
         <AppTitle title="Now Paying" />
+
+        <AppButton optionalStyling={{ alignSelf: 'center' }} text="create account" onPress={() => { }} buttonStyle={{ textColor: "black", isLink: true }} />
 
         {/* <LiquidSwipe /> */}
 

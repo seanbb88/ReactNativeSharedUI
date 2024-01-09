@@ -45,10 +45,11 @@ export const AppButton = ({
             onPress={onPress}
             activeOpacity={0.8}
         >
-            <Text style={[
-                { color: textColor, fontSize: textSize },
-            ]}>{text}</Text>
-            {isLink && <View style={[styles.borderBottom, { backgroundColor: textColor }]}></View>}
+            <View style={[isLink && { borderBottomColor: textColor, borderBottomWidth: 1 }]}>
+                <Text style={[
+                    { color: textColor, fontSize: textSize },
+                ]}>{text}</Text>
+            </View>
         </TouchableOpacity>
     );
 };
@@ -62,10 +63,6 @@ const styles = StyleSheet.create({
     linkButton: {
         backgroundColor: 'transparent',
         borderWidth: 0
-    },
-    borderBottom: {
-        width: '100%',
-        height: 1,
     }
 });
 
