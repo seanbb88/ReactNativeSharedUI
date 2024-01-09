@@ -6,6 +6,7 @@ interface ButtonStyles {
     borderColor?: string;
     backGroundColor?: string;
     textColor?: string;
+    textSize?: number;
     isLink?: boolean;
 }
 
@@ -21,10 +22,10 @@ export const AppButton = ({
     onPress,
     text,
     disabled = false,
-    buttonStyle = { backGroundColor: 'white', textColor: 'black', isLink: false },
+    buttonStyle = { backGroundColor: 'white', textColor: 'black', textSize: 12, isLink: false },
     optionalStyling
 }: AppButtonProps) => {
-    const { backGroundColor, textColor, borderColor, isLink } = buttonStyle;
+    const { backGroundColor, textColor, textSize, borderColor, isLink } = buttonStyle;
 
     return (
         <TouchableOpacity
@@ -44,7 +45,10 @@ export const AppButton = ({
             onPress={onPress}
             activeOpacity={0.8}
         >
-            <Text style={[styles.text, { color: textColor }, isLink && { borderBottomColor: textColor, borderWidth: 1 }]}>{text}</Text>
+            <Text style={[
+                { color: textColor, fontSize: textSize },
+                isLink ? { borderBottomColor: textColor, borderWidth: 1 } : null
+            ]}>{text}</Text>
         </TouchableOpacity>
     );
 };
@@ -54,9 +58,6 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16,
         paddingVertical: 8,
         borderRadius: 8,
-    },
-    text: {
-        fontSize: 12,
     },
     linkButton: {
         backgroundColor: 'transparent',
