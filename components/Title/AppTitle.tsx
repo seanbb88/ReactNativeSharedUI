@@ -1,19 +1,20 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, ViewStyle } from 'react-native';
 
 
 interface AppTitleProps {
     title: string;
     fontSize?: number;
     color?: string;
+    optionalStyling?: ViewStyle; 
 }
 
 export const AppTitle = ({
-    title, fontSize = 60, color = 'white'
+    title, fontSize = 60, color = 'white', optionalStyling
 }: AppTitleProps) => {
 
     return (
-        <Text style={{ color, fontSize, fontFamily: "Oswald" }}>{title}</Text>
+        <Text style={[ optionalStyling, { color, fontSize, fontFamily: "Oswald" }]}>{title}</Text>
     );
 };
 
