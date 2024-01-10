@@ -1,60 +1,63 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, Animated, Easing, ViewStyle } from 'react-native';
+import { View, TextInput, StyleSheet } from 'react-native';
+import Animated, { Easing, withTiming, useSharedValue, useAnimatedStyle, interpolateColor, interpolate } from 'react-native-reanimated';
 
 interface CustomInputProps {
     placeholder: string;
     value: string;
-    optionalStyling?: ViewStyle;
+    optionalStyling?: any;
     inputColor?: string;
     onChangeText: (text: string) => void;
 }
 
-export const CustomInput = ({ placeholder, value, optionalStyling, inputColor = 'white', onChangeText }: CustomInputProps) => {
-    const [isFocused, setIsFocused] = useState(false);
-    const labelPosition = new Animated.Value(isFocused || value !== "" ? 38 : 0);
+export const CustomInput = ({
+    placeholder,
+    value,
+    optionalStyling,
+    inputColor = 'white',
+    onChangeText,
+}: CustomInputProps) => {
+    const [_isFocused, setIsFocused] = useState(false);
+
+    const labelPosition = useSharedValue(0);
 
     const handleInputFocus = () => {
         setIsFocused(true);
-        Animated.timing(labelPosition, {
-            toValue: 38,
-            duration: 10000,
+        labelPosition.value = withTiming(-20, {
+            duration: 200,
             easing: Easing.ease,
-            useNativeDriver: false,
-        }).start();
+        });
     };
 
     const handleInputBlur = () => {
         setIsFocused(false);
-        if (value === "") { // Check if the input is empty when blurring
-            Animated.timing(labelPosition, {
-                toValue: 0,
-                duration: 10000,
-                easing: Easing.ease,
-                useNativeDriver: false,
-            }).start();
-        }
+        labelPosition.value = withTiming(0, {
+            duration: 200,
+            easing: Easing.ease,
+        });
     };
+
+    const labelStyle = useAnimatedStyle(() => {
+        return {
+            transform: [{ translateY: labelPosition.value }],
+            fontSize: interpolate(labelPosition.value, [-20, 0], [16, 22]),
+            color: interpolateColor(labelPosition.value, [-20, 0], [inputColor, inputColor]),
+        };
+    });
 
     return (
         <View style={optionalStyling}>
-            <Animated.Text
-                style={[
-                    styles.label,
-                    {
-                        top: labelPosition,
-                        color: inputColor
-                    },
-                ]}
-            >
-                {placeholder}
-            </Animated.Text>
+            <Animated.Text style={[styles.label, labelStyle]}>{placeholder}</Animated.Text>
             <TextInput
                 placeholder=""
                 value={value}
                 onChangeText={onChangeText}
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
-                style={[styles.input, { color: inputColor, borderBottomColor: inputColor }]}
+                style={[
+                    styles.input,
+                    { color: inputColor, borderBottomColor: inputColor },
+                ]}
             />
         </View>
     );
