@@ -9,7 +9,7 @@ import Iconicons from '@expo/vector-icons/Ionicons'
 // AVAILABLE COMPONENTS - HIDE/SHOW BY COMMENTING THEM OUT
 import AppButton from './components/Button/Button';
 import { AppTitle, ApplicationLoader, FullScreenLoader, PaqeLoader } from './components';
-import { TabBar, FadeView, LiquidSwipe } from './animations';
+import { TabBar, FadeView, LiquidSwipe, CustomInput } from './animations';
 
 
 
@@ -35,6 +35,7 @@ let customFonts = {
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
+  const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
     async function loadFonts() {
@@ -71,6 +72,15 @@ export default function App() {
         <AppTitle title="Now Paying" />
 
         <AppButton optionalStyling={{ alignSelf: 'center' }} text="create account" onPress={() => { }} buttonStyle={{ textColor: "black", isLink: true }} />
+
+        <View style={{ marginTop: 60, flex: 1, width: '80%' }}>
+          <CustomInput
+            placeholder='input here'
+            value={inputValue}
+            onChangeText={(text) => setInputValue(text)}
+          />
+        </View>
+
 
         {/* <LiquidSwipe /> */}
 
