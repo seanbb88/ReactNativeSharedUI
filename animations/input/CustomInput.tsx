@@ -46,7 +46,7 @@ export const CustomInput = ({
     });
 
     return (
-        <View style={[optionalStyling, { flex: 1 }]}>
+        <View style={[optionalStyling, { flex: 1, width: '100%' }]}>
             <Animated.Text style={[styles.label, labelStyle]}>{placeholder}</Animated.Text>
             <TextInput
                 placeholder=""
