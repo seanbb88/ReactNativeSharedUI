@@ -44,7 +44,7 @@ const getPath = () => {
         [0, 0],
         [tabWidth / 4, 0],
         [tabWidth / 2, 8],
-        [tabWidth, 80],
+        [tabWidth, 95],
         [(tabWidth / 2) * 3, 8],
         [(tabWidth / 4) * 7, 0],
         [tabWidth * 2, 0],
@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         backgroundColor: 'white',
+        height: 75
     },
     tabs: {
         position: 'absolute',
@@ -64,8 +65,8 @@ const styles = StyleSheet.create({
     },
     activeIcon: {
         backgroundColor: 'white',
-        width: 40,
-        height: 40,
+        width: 42,
+        height: 42,
         borderRadius: 20,
         justifyContent: 'center',
         alignItems: 'center',
@@ -160,7 +161,7 @@ function Bar({ tabs, backgroundColor, handleClick }: { tabs: TabProps[], backgro
 const tabBarStyles = StyleSheet.create({
     container: {
         width,
-        height: 80,
+        height: 140,
         flex: 1,
     },
     dummyPusher: {

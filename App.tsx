@@ -4,29 +4,29 @@ import { useFonts } from 'expo-font';
 import { useCallback, useEffect, useState } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
-//import Iconicons from '@expo/vector-icons/Ionicons'
+import Iconicons from '@expo/vector-icons/Ionicons'
 
 // AVAILABLE COMPONENTS - HIDE/SHOW BY COMMENTING THEM OUT
 import AppButton from './components/Button/Button';
 import { AppTitle, ApplicationLoader, FullScreenLoader, PaqeLoader } from './components';
-// import { TabBar, FadeView, LiquidSwipe } from './animations';
+import { TabBar, FadeView, LiquidSwipe } from './animations';
 
 
 
-// const tabs = [
-//   {
-//     name: 'Home',
-//     item: <Iconicons color="black" size={25} name="home-outline" />,
-//   },
-//   {
-//     name: 'MyList',
-//     item: <Iconicons color="black" size={25} name="list-outline" />,
-//   },
-//   {
-//     name: 'Settings',
-//     item: <Iconicons color="black" size={25} name="people-outline" />,
-//   },
-// ];
+const tabs = [
+  {
+    name: 'Home',
+    item: <Iconicons color="black" size={25} name="home-outline" />,
+  },
+  {
+    name: 'MyList',
+    item: <Iconicons color="black" size={25} name="list-outline" />,
+  },
+  {
+    name: 'Settings',
+    item: <Iconicons color="black" size={25} name="people-outline" />,
+  },
+];
 
 let customFonts = {
   'Oswald': require('./assets/fonts/Oswald-VariableFont_wght.ttf'),
@@ -65,7 +65,6 @@ export default function App() {
         {/* <SwipeableList /> */}
 
         {/* TABS */}
-        {/* <TabBar tabs={tabs} backGroundColor="#255433" onTabChange={handleTabbyShit} /> */}
 
 
         {/* TITLES */}
@@ -87,6 +86,7 @@ export default function App() {
 
 
       </View>
+      <TabBar tabs={tabs} backGroundColor="#255433" onTabChange={handleTabbyShit} />
     </GestureHandlerRootView>
   );
 }
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 60,
-    backgroundColor: 'white',
+    backgroundColor: '#255433',
     alignItems: 'center',
   },
 });
