@@ -75,7 +75,8 @@ const styles = StyleSheet.create({
         fontSize: 22,
         padding: 4,
         borderBottomWidth: 1,
-        width: "100%"
+        width: "100%",
+        minWidth: 200
     },
 });
 
