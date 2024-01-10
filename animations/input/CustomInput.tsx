@@ -76,7 +76,9 @@ const styles = StyleSheet.create({
         padding: 4,
         borderBottomWidth: 1,
         width: "100%",
-        minWidth: 200
+        minWidth: 200,
+        height: 90,
+        maxHeight: 90
     },
 });
 
