@@ -43,7 +43,7 @@ import { AppButton } from '@browntreebear/reactnativesharedui/components'
     optionalStyling={{ alignSelf: 'center' }}  
     text="Logout" // <- Button Text
     onPress={() => {}} // <- Button action
-    buttonStyle={{ backGroundColor: "#255433", textColor: "#E0E0E0" }} // <- button style
+    buttonStyle={{ backGroundColor: "#255433", textColor: "#E0E0E0" }}
 />
 ```
 
@@ -89,7 +89,11 @@ const tabs = [
         })}
     </View>
     <View style={styles.tabBar}>
-        <TabBar tabs={tabs} onTabChange={handleTabNavigation} backGroundColor="#10001A" />
+        <TabBar 
+            tabs={tabs} 
+            onTabChange={handleTabNavigation} 
+            backGroundColor="#10001A" 
+        />
     </View>
 </NavigationContent>
 ```
