@@ -161,7 +161,7 @@ function Bar({ tabs, backgroundColor, handleClick }: { tabs: TabProps[], backgro
 const tabBarStyles = StyleSheet.create({
     container: {
         width,
-        height: 140,
+        height: 75,
         flex: 1,
     },
     dummyPusher: {
