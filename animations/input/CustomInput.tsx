@@ -7,6 +7,7 @@ interface CustomInputProps {
     value: string;
     optionalStyling?: any;
     inputColor?: string;
+    obviscateText?: boolean;
     onChangeText: (text: string) => void;
 }
 
@@ -15,6 +16,7 @@ export const CustomInput = ({
     value,
     optionalStyling,
     inputColor = 'white',
+    obviscateText = false,
     onChangeText,
 }: CustomInputProps) => {
     const [_isFocused, setIsFocused] = useState(false);
@@ -31,10 +33,12 @@ export const CustomInput = ({
 
     const handleInputBlur = () => {
         setIsFocused(false);
-        labelPosition.value = withTiming(0, {
-            duration: 200,
-            easing: Easing.ease,
-        });
+        if (value === "") {
+            labelPosition.value = withTiming(0, {
+                duration: 200,
+                easing: Easing.ease,
+            });
+        }
     };
 
     const labelStyle = useAnimatedStyle(() => {
@@ -51,6 +55,7 @@ export const CustomInput = ({
             <TextInput
                 placeholder=""
                 value={value}
+                secureTextEntry={obviscateText}
                 onChangeText={onChangeText}
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
