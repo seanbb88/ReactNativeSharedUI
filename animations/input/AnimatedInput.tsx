@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 import Animated, { Easing, withTiming, useSharedValue, useAnimatedStyle, interpolateColor, interpolate } from 'react-native-reanimated';
 
-interface CustomInputProps {
+interface AnimatedInputProps {
     placeholder: string;
     value: string;
     optionalStyling?: any;
@@ -11,14 +11,14 @@ interface CustomInputProps {
     onChangeText: (text: string) => void;
 }
 
-export const CustomInput = ({
+export const AnimatedInput = ({
     placeholder,
     value,
     optionalStyling,
     inputColor = 'white',
     obviscateText = false,
     onChangeText,
-}: CustomInputProps) => {
+}: AnimatedInputProps) => {
     const [_isFocused, setIsFocused] = useState(false);
 
     const labelPosition = useSharedValue(0);
@@ -82,4 +82,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default CustomInput;
+export default AnimatedInput;

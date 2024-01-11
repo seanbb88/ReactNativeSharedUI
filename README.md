@@ -32,7 +32,8 @@ npm run ios
 npm run type-check
 ```
 
-## Available Components
+
+## Components (Non Animated)
 
 -**Buttons**
 ```bash
@@ -46,6 +47,21 @@ import { AppButton } from '@browntreebear/reactnativesharedui/components'
     buttonStyle={{ backGroundColor: "#255433", textColor: "#E0E0E0" }}
 />
 ```
+
+-**Loaders**
+```bash
+import { FullScreenLoader, ApplicationLoader, PageLoader } 
+from '@browntreebear/reactnativesharedui/components'
+
+<ApplicationLoader/>
+<PageLoader loaderColor="white"/>
+<FullScreenLoader loaderColor="grey" visible={true}/>
+```
+
+
+## Components (Animated)
+Note: Application must be wrapped in <GestureHandlerRootView/> from the 'react-native-gesture-handler' package
+listed above in order to use these components
 
 -**TabBar**
 - note: this was built with routing built on @react-navigation/native
@@ -100,13 +116,35 @@ const tabs = [
 
 ![Tab Navigation Component](./assets/demo/tab_demo.gif)
 
--**Loaders**
-```bash
-import { FullScreenLoader, ApplicationLoader, PageLoader } 
-from '@browntreebear/reactnativesharedui/components'
 
-<ApplicationLoader/>
-<PageLoader loaderColor="white"/>
-<FullScreenLoader loaderColor="grey" visible={true}/>
+-**FadeView**
+-this just fades in and out the child component (for the duration set)
+
+```bash
+import { FadeView } from '@browntreebear/reactnativesharedui/animations'
+
+<FadeView duration={1200}>
+    <Text>Fadin in and out babbey</Text>
+</FadeView> 
 ```
 
+-**AnimatedInput**
+-this input animates the placeholder above the text input when the user selects
+
+```bash
+import { AnimatedInput } from '@browntreebear/reactnativesharedui/animations'
+
+<AnimatedInput
+    placeholder='Enter your password'
+    value={inputValue}
+    inputColor="black"
+    optionalStyling={{ marginTop: 8 }}
+    obviscateText={true}
+    onChangeText={(text) => setInputValue(text)}
+/>
+```
+
+![Animated Input Component](./assets/demo/animated_input_demo.gif)
+
+
+    

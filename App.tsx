@@ -9,7 +9,7 @@ import Iconicons from '@expo/vector-icons/Ionicons'
 // AVAILABLE COMPONENTS - HIDE/SHOW BY COMMENTING THEM OUT
 import AppButton from './components/Button/Button';
 import { AppTitle, ApplicationLoader, FullScreenLoader, PaqeLoader } from './components';
-import { TabBar, FadeView, LiquidSwipe, CustomInput } from './animations';
+import { TabBar, FadeView, LiquidSwipe, AnimatedInput } from './animations';
 
 
 
@@ -74,9 +74,12 @@ export default function App() {
         <AppButton optionalStyling={{ alignSelf: 'center' }} text="create account" onPress={() => { }} buttonStyle={{ textColor: "black", isLink: true }} />
 
         <View style={{ marginTop: 60, flex: 1, width: '80%' }}>
-          <CustomInput
-            placeholder='input here'
+          <AnimatedInput
+            placeholder='Enter your password'
             value={inputValue}
+            inputColor="white"
+            optionalStyling={{ marginTop: 8 }}
+            obviscateText={true}
             onChangeText={(text) => setInputValue(text)}
           />
         </View>
