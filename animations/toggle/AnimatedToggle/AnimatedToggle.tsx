@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ViewStyle } from 'react-native';
 
 interface AnimatedToggleProps {
@@ -6,10 +6,18 @@ interface AnimatedToggleProps {
     optionTwo: string;
     onToggle: (toggleValue: string) => void;
     optionalStyling?: ViewStyle;
+    defaultSelection?: string;
 }
 
-export const AnimatedToggle = ({ optionOne, optionTwo, onToggle, optionalStyling }: AnimatedToggleProps) => {
+
+export const AnimatedToggle = ({ optionOne, optionTwo, onToggle, optionalStyling, defaultSelection }: AnimatedToggleProps) => {
     const [isOptionOneSelected, setIsOptionOneSelected] = useState(true);
+
+    useEffect(() => {
+        if (defaultSelection === optionTwo) {
+            setIsOptionOneSelected(false);
+        }
+    }, [defaultSelection, optionTwo]);
 
     const toggleSwitch = () => {
         const newValue = isOptionOneSelected ? optionTwo : optionOne;
@@ -22,7 +30,9 @@ export const AnimatedToggle = ({ optionOne, optionTwo, onToggle, optionalStyling
             <TouchableOpacity onPress={toggleSwitch} style={styles.toggle}>
                 <View style={[styles.toggleTrack, isOptionOneSelected ? styles.toggleTrackOn : styles.toggleTrackOff]}>
                     <View style={[styles.toggleCircle, isOptionOneSelected ? styles.toggleCircleOn : styles.toggleCircleOff]} />
-                    <Text style={[styles.toggleText, !isOptionOneSelected && styles.alternateText]}>{isOptionOneSelected ? optionOne : optionTwo}</Text>
+                    <Text style={[styles.toggleText, !isOptionOneSelected && styles.alternateText]}>
+                        {isOptionOneSelected ? optionOne : optionTwo}
+                    </Text>
                 </View>
             </TouchableOpacity>
         </View>
