@@ -11,8 +11,6 @@ import AppButton from './components/Button/Button';
 import { AppTitle, FullScreenLoader, PaqeLoader } from './components';
 import { TabBar, FadeView, LiquidSwipe, AnimatedInput, NowPlayingLoader } from './animations';
 import AnimatedToggle from './animations/toggle/AnimatedToggle/AnimatedToggle';
-import SimpleToggle from './animations/toggle/AnimatedToggle/AnimatedToggle';
-import TextInsideToggle from './animations/toggle/AnimatedToggle/AnimatedToggle';
 
 
 
@@ -81,7 +79,11 @@ export default function App() {
             onChangeText={(text) => setInputValue(text)}
           />
         </View> */}
-
+        <AnimatedToggle
+          optionOne='watched'
+          optionTwo='unwatched'
+          onToggle={(e) => console.log("DA TOGGLE", e)}
+        />
 
         {/* <LiquidSwipe /> */}
 
