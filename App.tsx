@@ -8,8 +8,11 @@ import Iconicons from '@expo/vector-icons/Ionicons'
 
 // AVAILABLE COMPONENTS - HIDE/SHOW BY COMMENTING THEM OUT
 import AppButton from './components/Button/Button';
-import { AppTitle, ApplicationLoader, FullScreenLoader, PaqeLoader } from './components';
-import { TabBar, FadeView, LiquidSwipe, AnimatedInput } from './animations';
+import { AppTitle, FullScreenLoader, PaqeLoader } from './components';
+import { TabBar, FadeView, LiquidSwipe, AnimatedInput, NowPlayingLoader } from './animations';
+import AnimatedToggle from './animations/toggle/AnimatedToggle/AnimatedToggle';
+import SimpleToggle from './animations/toggle/AnimatedToggle/AnimatedToggle';
+import TextInsideToggle from './animations/toggle/AnimatedToggle/AnimatedToggle';
 
 
 
@@ -65,13 +68,8 @@ export default function App() {
         {/* LISTS */}
         {/* <SwipeableList /> */}
 
-        {/* TABS */}
 
-
-        {/* TITLES */}
-        <AppTitle title="Now Paying" />
-
-        <AppButton optionalStyling={{ alignSelf: 'center' }} text="create account" onPress={() => { }} buttonStyle={{ textColor: "black", isLink: true }} />
+        {/* <AppButton optionalStyling={{ alignSelf: 'center' }} text="create account" onPress={() => { }} buttonStyle={{ textColor: "black", isLink: true }} />
 
         <View style={{ marginTop: 60, flex: 1, width: '80%' }}>
           <AnimatedInput
@@ -82,7 +80,7 @@ export default function App() {
             obviscateText={true}
             onChangeText={(text) => setInputValue(text)}
           />
-        </View>
+        </View> */}
 
 
         {/* <LiquidSwipe /> */}
@@ -91,6 +89,7 @@ export default function App() {
         {/* <PaqeLoader /> */}
         {/* <ApplicationLoader /> */}
         {/* <FullScreenLoader visible={true} /> */}
+        {/* <NowPlayingLoader /> */}
 
         {/* ANIMATIONS */}
         {/* <FadeView duration={1200}>
@@ -99,6 +98,8 @@ export default function App() {
 
 
       </View>
+
+      {/* TABS */}
       <TabBar tabs={tabs} backGroundColor="#255433" onTabChange={handleTabbyShit} />
     </GestureHandlerRootView>
   );
