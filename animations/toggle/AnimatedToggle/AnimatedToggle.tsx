@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ViewStyle } from 'react-native';
 
 interface AnimatedToggleProps {
     optionOne: string;
     optionTwo: string;
     onToggle: (toggleValue: string) => void;
+    optionalStyling?: ViewStyle;
 }
 
-export const AnimatedToggle = ({ optionOne, optionTwo, onToggle }: AnimatedToggleProps) => {
+export const AnimatedToggle = ({ optionOne, optionTwo, onToggle, optionalStyling }: AnimatedToggleProps) => {
     const [isOptionOneSelected, setIsOptionOneSelected] = useState(true);
 
     const toggleSwitch = () => {
@@ -17,7 +18,7 @@ export const AnimatedToggle = ({ optionOne, optionTwo, onToggle }: AnimatedToggl
     };
 
     return (
-        <View style={styles.container}>
+        <View style={optionalStyling}>
             <TouchableOpacity onPress={toggleSwitch} style={styles.toggle}>
                 <View style={[styles.toggleTrack, isOptionOneSelected ? styles.toggleTrackOn : styles.toggleTrackOff]}>
                     <View style={[styles.toggleCircle, isOptionOneSelected ? styles.toggleCircleOn : styles.toggleCircleOff]} />
@@ -29,9 +30,6 @@ export const AnimatedToggle = ({ optionOne, optionTwo, onToggle }: AnimatedToggl
 };
 
 const styles = StyleSheet.create({
-    container: {
-        marginTop: 50,
-    },
     toggle: {
         width: 160,
         height: 40,
