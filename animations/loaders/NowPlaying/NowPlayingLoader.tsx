@@ -5,7 +5,7 @@ import { Svg, Path } from 'react-native-svg';
 import { AppTitle } from '../../../components';
 
 interface NowPlayingLoaderProps {
-    optionalStyling: ViewStyle;
+    optionalStyling?: ViewStyle;
 }
 
 export const NowPlayingLoader = ({ optionalStyling }: NowPlayingLoaderProps) => {
