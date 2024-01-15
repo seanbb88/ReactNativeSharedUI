@@ -1,10 +1,14 @@
 import React, { useEffect } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ViewStyle } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withSpring, withRepeat, withSequence } from 'react-native-reanimated';
 import { Svg, Path } from 'react-native-svg';
 import { AppTitle } from '../../../components';
 
-export const NowPlayingLoader = () => {
+interface NowPlayingLoaderProps {
+    optionalStyling: ViewStyle;
+}
+
+export const NowPlayingLoader = ({ optionalStyling }: NowPlayingLoaderProps) => {
     const rotation = useSharedValue(0);
     const animatedStyles = useAnimatedStyle(() => {
         return {
@@ -24,7 +28,7 @@ export const NowPlayingLoader = () => {
     }, []);
 
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, optionalStyling]}>
             <Animated.View style={animatedStyles}>
                 <Svg
                     width={200}
