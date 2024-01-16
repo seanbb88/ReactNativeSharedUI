@@ -44,8 +44,8 @@ const getPath = () => {
         [0, 0],
         [tabWidth / 4, 0],
         [tabWidth / 2, 8],
-        [tabWidth, 95],
-        [(tabWidth / 2) * 3, 8],
+        [tabWidth, 99],
+        [(tabWidth / 2) * 3, 10],
         [(tabWidth / 4) * 7, 0],
         [tabWidth * 2, 0],
     ]);
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         backgroundColor: 'white',
-        height: 75
+        height: 80
     },
     tabs: {
         position: 'absolute',
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         width: tabWidth,
         top: -8,
         left: tabWidth / 2,
-        height: 80,
+        height: 78,
         justifyContent: 'center',
         alignItems: 'center',
         zIndex: 5,

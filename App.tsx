@@ -17,6 +17,10 @@ import AnimatedToggle from './animations/toggle/AnimatedToggle/AnimatedToggle';
 const tabs = [
   {
     name: 'Home',
+    item: <Iconicons color="black" size={25} name="videocam-outline" />,
+  },
+  {
+    name: 'Home',
     item: <Iconicons color="black" size={25} name="home-outline" />,
   },
   {
