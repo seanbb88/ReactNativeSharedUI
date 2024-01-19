@@ -2,10 +2,10 @@ import React from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 
 interface PageLoaderProps {
-    loaderColor: "007AFF"
+    loaderColor: string
 }
 
-export const PageLoader = ({ loaderColor }: PageLoaderProps) => {
+export const PageLoader = ({ loaderColor = "#007AFF" }: PageLoaderProps) => {
     return (
         <View style={styles.container}>
             <ActivityIndicator size={'large'} color={loaderColor} />
