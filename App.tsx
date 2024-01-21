@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useFonts } from 'expo-font';
 import { useCallback, useEffect, useState } from 'react';
@@ -9,7 +9,7 @@ import Iconicons from '@expo/vector-icons/Ionicons'
 // AVAILABLE COMPONENTS - HIDE/SHOW BY COMMENTING THEM OUT
 import AppButton from './components/Button/Button';
 import { AppTitle, FullScreenLoader, PaqeLoader } from './components';
-import { TabBar, FadeView, LiquidSwipe, AnimatedInput, NowPlayingLoader } from './animations';
+import { TabBar, FadeView, LiquidSwipe, AnimatedInput, NowPlayingLoader, BreathingView } from './animations';
 import AnimatedToggle from './animations/toggle/AnimatedToggle/AnimatedToggle';
 
 
@@ -83,6 +83,7 @@ export default function App() {
             onChangeText={(text) => setInputValue(text)}
           />
         </View> */}
+        <BreathingView><Text style={{ color: 'white', fontSize: 25 }}>Here He Here He</Text></BreathingView>
         <AnimatedToggle
           optionOne='watched'
           optionTwo='unwatched'
