@@ -4,8 +4,6 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import Iconicons from '@expo/vector-icons/Ionicons';
 
 interface MiniModalProps {
-    backgroundColor?: string;
-    textColor?: string;
     header?: string;
     isOpen: boolean;
     modalContent: any;
@@ -13,19 +11,19 @@ interface MiniModalProps {
     handleToggleModal: () => void;
 }
 
-export const MiniModal = ({ backgroundColor = '#CCCCCC', optionalStyling, textColor = 'black', header, isOpen, handleToggleModal, modalContent }: MiniModalProps) => {
+export const MiniModal = ({ optionalStyling, header, isOpen, handleToggleModal, modalContent }: MiniModalProps) => {
     if (!isOpen) {
         return null;
     }
 
     return (
-        <View style={[styles.container, optionalStyling && { backgroundColor: backgroundColor }]}>
+        <View style={[styles.container, optionalStyling]}>
             <View style={styles.headerContainer}>
                 <View style={styles.headerTextContainer}>
-                    {header && <Text style={[styles.header, { color: textColor }]}>{header}</Text>}
+                    {header && <Text style={[styles.header]}>{header}</Text>}
                 </View>
                 <TouchableOpacity style={styles.closeBtn} onPress={handleToggleModal}>
-                    <Iconicons color={textColor} size={23} name="close-circle-outline" />
+                    <Iconicons color={'black'} size={23} name="close-circle-outline" />
                 </TouchableOpacity>
             </View>
             <View style={styles.contentContainer}>
@@ -40,18 +38,20 @@ const styles = StyleSheet.create({
         flex: 1,
         position: 'absolute',
         width: '80%',
-        height: 175,
-        top: '60%',
+        height: 250,
+        top: '20%',
         left: '10%',
         alignItems: 'center',
         borderRadius: 8,
+        zIndex: 10,
+        backgroundColor: '#CCCCCC'
     },
     header: {
-        color: "white",
+        color: "black",
         alignSelf: "center",
         marginLeft: 32,
         marginTop: 8,
-        fontSize: 20
+        fontSize: 20,
     },
     closeBtn: {
         paddingTop: 8,
@@ -73,4 +73,3 @@ const styles = StyleSheet.create({
 });
 
 export default MiniModal;
-

@@ -92,6 +92,7 @@ export default function App() {
 
         {/* <LiquidSwipe /> */}
         <MiniModal
+          backgroundColor='#CCCCCC'
           isOpen={true}
           handleToggleModal={() => { }}
           header='Header'
