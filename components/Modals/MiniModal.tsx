@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, ViewStyle } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Iconicons from '@expo/vector-icons/Ionicons';
 
@@ -9,16 +9,17 @@ interface MiniModalProps {
     header?: string;
     isOpen: boolean;
     modalContent: any;
+    optionalStyling?: ViewStyle;
     handleToggleModal: () => void;
 }
 
-export const MiniModal = ({ backgroundColor = '#CCCCCC', textColor = 'black', header, isOpen, handleToggleModal, modalContent }: MiniModalProps) => {
+export const MiniModal = ({ backgroundColor = '#CCCCCC', optionalStyling, textColor = 'black', header, isOpen, handleToggleModal, modalContent }: MiniModalProps) => {
     if (!isOpen) {
         return null;
     }
 
     return (
-        <View style={[styles.container, { backgroundColor: backgroundColor }]}>
+        <View style={[styles.container, optionalStyling && { backgroundColor: backgroundColor }]}>
             <View style={styles.headerContainer}>
                 <View style={styles.headerTextContainer}>
                     {header && <Text style={[styles.header, { color: textColor }]}>{header}</Text>}
@@ -44,7 +45,6 @@ const styles = StyleSheet.create({
         left: '10%',
         alignItems: 'center',
         borderRadius: 8,
-        zIndex: 101
     },
     header: {
         color: "white",
