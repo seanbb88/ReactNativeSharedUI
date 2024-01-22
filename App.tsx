@@ -8,7 +8,7 @@ import Iconicons from '@expo/vector-icons/Ionicons'
 
 // AVAILABLE COMPONENTS - HIDE/SHOW BY COMMENTING THEM OUT
 import AppButton from './components/Button/Button';
-import { AppTitle, FullScreenLoader, PaqeLoader } from './components';
+import { AppTitle, FullScreenLoader, MiniModal, PaqeLoader } from './components';
 import { TabBar, FadeView, LiquidSwipe, AnimatedInput, NowPlayingLoader, BreathingView } from './animations';
 import AnimatedToggle from './animations/toggle/AnimatedToggle/AnimatedToggle';
 
@@ -91,6 +91,13 @@ export default function App() {
         />
 
         {/* <LiquidSwipe /> */}
+        <MiniModal
+          isOpen={true}
+          handleToggleModal={() => { }}
+          header='Header'
+          modalContent={<Text>Hey</Text>}
+
+        />
 
         {/* LOADERS */}
         {/* <PaqeLoader /> */}
