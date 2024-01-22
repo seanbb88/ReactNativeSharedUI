@@ -5,13 +5,14 @@ import Iconicons from '@expo/vector-icons/Ionicons';
 
 interface MiniModalProps {
     backgroundColor?: string;
+    textColor?: string;
     header?: string;
     isOpen: boolean;
     modalContent: any;
     handleToggleModal: () => void;
 }
 
-export const MiniModal = ({ backgroundColor = '#252c35', header, isOpen, handleToggleModal, modalContent }: MiniModalProps) => {
+export const MiniModal = ({ backgroundColor = '#CCCCCC', textColor = 'black', header, isOpen, handleToggleModal, modalContent }: MiniModalProps) => {
     if (!isOpen) {
         return null;
     }
@@ -20,10 +21,10 @@ export const MiniModal = ({ backgroundColor = '#252c35', header, isOpen, handleT
         <View style={[styles.container, { backgroundColor: backgroundColor }]}>
             <View style={styles.headerContainer}>
                 <View style={styles.headerTextContainer}>
-                    {header && <Text style={styles.header}>{header}</Text>}
+                    {header && <Text style={[styles.header, { color: textColor }]}>{header}</Text>}
                 </View>
                 <TouchableOpacity style={styles.closeBtn} onPress={handleToggleModal}>
-                    <Iconicons color="white" size={23} name="close-circle-outline" />
+                    <Iconicons color={textColor} size={23} name="close-circle-outline" />
                 </TouchableOpacity>
             </View>
             <View style={styles.contentContainer}>
@@ -38,8 +39,8 @@ const styles = StyleSheet.create({
         flex: 1,
         position: 'absolute',
         width: '80%',
-        height: 150,
-        top: '50%',
+        height: 175,
+        top: '60%',
         left: '10%',
         alignItems: 'center',
         borderRadius: 8,
