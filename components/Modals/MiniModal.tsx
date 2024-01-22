@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
         left: '10%',
         alignItems: 'center',
         borderRadius: 8,
+        zIndex: 101
     },
     header: {
         color: "white",
