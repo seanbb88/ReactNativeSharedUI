@@ -110,8 +110,6 @@ function ListItem({ item, onRemove }: ListItemProps) {
         },
     });
 
-    console.log("WINDOW DIMENSIONS", windowDimensions)
-
     const styles = useAnimatedStyle(() => {
         if (isRemoving.value) {
             return {

@@ -30,6 +30,10 @@ export function TabButton({
     indicatorPosition,
     handleClick
 }: ButtonProps) {
+
+    console.log("ACTIVE INDEX", activeIndex)
+    console.log("INDICATOR POSTITION", indicatorPosition)
+
     const staticIconStyle = useAnimatedStyle(() => {
         const visibility = interpolate(
             indicatorPosition.value,
