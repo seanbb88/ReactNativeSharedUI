@@ -106,8 +106,13 @@ function ActiveIcon({ item, index, activeIndex }: ActiveIconProps) {
 }
 
 function Bar({ tabs, backgroundColor, handleClick, activeRoute }: { tabs: TabProps[]; backgroundColor: string; handleClick: (index: number) => void; activeRoute: string }) {
-    // Update the activeIndex based on activeRoute
-    const activeIndex = useSharedValue(tabs.findIndex(tab => tab.name === activeRoute));
+    const initialActiveIndex = tabs.findIndex(tab => tab.name === activeRoute);
+    const activeIndex = useSharedValue(initialActiveIndex);
+
+    React.useEffect(() => {
+        const newIndex = tabs.findIndex(tab => tab.name === activeRoute);
+        activeIndex.value = newIndex;
+    }, [activeRoute, tabs]);
 
     const indicatorPosition = useDerivedValue(() => {
         return withTiming(activeIndex.value * tabWidth + tabWidth / 2, {
