@@ -19,9 +19,10 @@ import { TabButton } from './TabButton';
 const { width } = Dimensions.get('window');
 
 interface TabBarProps {
-    tabs: TabProps[],
+    tabs: TabProps[];
     backGroundColor?: any;
     onTabChange: (tabIndex: number) => void;
+    activeRoute: string;
 }
 
 interface TabProps {
@@ -35,7 +36,6 @@ type ActiveIconProps = {
     activeIndex: Animated.SharedValue<number>;
     width: number;
 };
-
 
 const tabWidth = width / NOW_PLAYING_TAB_COUNT;
 
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         backgroundColor: 'white',
-        height: 80
+        height: 80,
     },
     tabs: {
         position: 'absolute',
@@ -83,9 +83,6 @@ const styles = StyleSheet.create({
     },
 });
 
-
-
-
 function ActiveIcon({ item, index, activeIndex }: ActiveIconProps) {
     const circleIconStyle = useAnimatedStyle(() => {
         const isActive = index === activeIndex.value;
@@ -108,8 +105,11 @@ function ActiveIcon({ item, index, activeIndex }: ActiveIconProps) {
     );
 }
 
-function Bar({ tabs, backgroundColor, handleClick }: { tabs: TabProps[], backgroundColor: string, handleClick: (index: number) => void }) {
-    const activeIndex = useSharedValue(0);
+function Bar({ tabs, backgroundColor, handleClick, activeRoute }: { tabs: TabProps[]; backgroundColor: string; handleClick: (index: number) => void; activeRoute: string }) {
+    // Update the activeIndex based on activeRoute
+    const activeIndex = useSharedValue(tabs.findIndex(tab => tab.name === activeRoute));
+    console.log("ACTIVE INDEX", activeIndex)
+    console.log("ACTIVE ROUTE", activeRoute)
 
     const indicatorPosition = useDerivedValue(() => {
         return withTiming(activeIndex.value * tabWidth + tabWidth / 2, {
@@ -170,14 +170,12 @@ const tabBarStyles = StyleSheet.create({
     },
 });
 
-
-
-export default function TabBar({ tabs, backGroundColor = 'black', onTabChange }: TabBarProps) {
+export default function TabBar({ tabs, backGroundColor = 'black', onTabChange, activeRoute }: TabBarProps) {
     if (!tabs) return null;
     return (
         <View style={[tabBarStyles.container, { backgroundColor: backGroundColor }]}>
             <View style={tabBarStyles.dummyPusher} />
-            <Bar tabs={tabs} backgroundColor={backGroundColor} handleClick={onTabChange} />
+            <Bar tabs={tabs} backgroundColor={backGroundColor} handleClick={onTabChange} activeRoute={activeRoute} />
         </View>
     );
 }
