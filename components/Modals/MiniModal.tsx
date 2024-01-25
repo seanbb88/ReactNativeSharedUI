@@ -23,7 +23,7 @@ export const MiniModal = ({ optionalStyling, header, isOpen, handleToggleModal, 
                     {header && <Text style={[styles.header]}>{header}</Text>}
                 </View>
                 <TouchableOpacity style={styles.closeBtn} onPress={handleToggleModal}>
-                    <Iconicons color={'black'} size={23} name="close-circle-outline" />
+                    <Iconicons color={'white'} size={23} name="close-circle-outline" />
                 </TouchableOpacity>
             </View>
             <View style={styles.contentContainer}>
@@ -44,10 +44,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 8,
         zIndex: 10,
-        backgroundColor: '#CCCCCC'
+        backgroundColor: '#10001A',
+        borderWidth: 1,
+        borderColor: 'white'
     },
     header: {
-        color: "black",
+        color: "white",
         alignSelf: "center",
         marginLeft: 32,
         marginTop: 8,
