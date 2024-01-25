@@ -8,7 +8,7 @@ import Iconicons from '@expo/vector-icons/Ionicons'
 
 // AVAILABLE COMPONENTS - HIDE/SHOW BY COMMENTING THEM OUT
 import AppButton from './components/Button/Button';
-import { AppTitle, FullScreenLoader, MiniModal, PaqeLoader } from './components';
+import { AppTitle, FullScreenLoader, MiniModal, PaqeLoader, RankingSlider } from './components';
 import { TabBar, FadeView, LiquidSwipe, AnimatedInput, NowPlayingLoader, BreathingView } from './animations';
 import AnimatedToggle from './animations/toggle/AnimatedToggle/AnimatedToggle';
 
@@ -41,6 +41,7 @@ let customFonts = {
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const [inputValue, setInputValue] = useState('');
+  const [rankingSliderVal, setRankingSliderVal] = useState<number | null>(null)
 
   useEffect(() => {
     async function loadFonts() {
@@ -54,6 +55,11 @@ export default function App() {
 
   const handleTabbyShit = (index: number) => {
     console.log("index we be at", index)
+  }
+
+  const handleSettingSliderVal = (val: number) => {
+    console.log("SLIDER val", val)
+    setRankingSliderVal(val)
   }
 
   if (!fontsLoaded) {
@@ -91,12 +97,18 @@ export default function App() {
         />
 
         {/* <LiquidSwipe /> */}
-        <MiniModal
+        {/* <MiniModal
           isOpen={true}
           handleToggleModal={() => { }}
           header='Header'
           modalContent={<Text>Hey</Text>}
 
+        /> */}
+
+
+        <RankingSlider
+          initialValue={rankingSliderVal}
+          onValueChange={handleSettingSliderVal}
         />
 
         {/* LOADERS */}
@@ -114,7 +126,7 @@ export default function App() {
       </View>
 
       {/* TABS */}
-      <TabBar tabs={tabs} backGroundColor="#255433" onTabChange={handleTabbyShit} />
+      <TabBar tabs={tabs} backGroundColor="#255433" onTabChange={handleTabbyShit} activeRoute='Home' />
     </GestureHandlerRootView>
   );
 }
