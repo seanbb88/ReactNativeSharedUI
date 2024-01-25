@@ -8,7 +8,7 @@ import Iconicons from '@expo/vector-icons/Ionicons'
 
 // AVAILABLE COMPONENTS - HIDE/SHOW BY COMMENTING THEM OUT
 import AppButton from './components/Button/Button';
-import { AppTitle, FullScreenLoader, MiniModal, PaqeLoader, RankingSlider } from './components';
+import { AppTitle, FullScreenLoader, MiniModal, PaqeLoader } from './components';
 import { TabBar, FadeView, LiquidSwipe, AnimatedInput, NowPlayingLoader, BreathingView } from './animations';
 import AnimatedToggle from './animations/toggle/AnimatedToggle/AnimatedToggle';
 
@@ -41,7 +41,6 @@ let customFonts = {
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  const [rankingSliderVal, setRankingSliderVal] = useState<number | null>(null)
 
   useEffect(() => {
     async function loadFonts() {
@@ -57,10 +56,6 @@ export default function App() {
     console.log("index we be at", index)
   }
 
-  const handleSettingSliderVal = (val: number) => {
-    console.log("SLIDER val", val)
-    setRankingSliderVal(val)
-  }
 
   if (!fontsLoaded) {
     return null;
@@ -105,11 +100,6 @@ export default function App() {
 
         /> */}
 
-
-        <RankingSlider
-          initialValue={rankingSliderVal}
-          onValueChange={handleSettingSliderVal}
-        />
 
         {/* LOADERS */}
         {/* <PaqeLoader /> */}
