@@ -50,7 +50,7 @@ export const AnimatedInput = ({
     });
 
     return (
-        <View style={[{ flex: 1, minWidth: 260, maxHeight: 80 }, optionalStyling]}>
+        <View style={[{ flex: 1, minWidth: 260, maxHeight: 38 }, optionalStyling]}>
             <Animated.Text style={[styles.label, labelStyle]}>{placeholder}</Animated.Text>
             <TextInput
                 placeholder=""
