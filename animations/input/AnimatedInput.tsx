@@ -72,11 +72,11 @@ const styles = StyleSheet.create({
     label: {
         position: 'absolute',
         left: -5,
-        fontSize: 22,
+        fontSize: 20,
         paddingHorizontal: 5,
     },
     input: {
-        fontSize: 22,
+        fontSize: 20,
         padding: 4,
         borderBottomWidth: 1,
     },
