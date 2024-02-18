@@ -10,7 +10,7 @@ To get started, you can install the package via npm:
 npm install @browntreebear/reactnativesharedui
 ```
 
-NOTE: any component used from the folder /animations (such as TabBar) has a react-native-gesture-handler dependency. 
+NOTE: any component used from the folder /animations (such as NowPlayingTabBar) has a react-native-gesture-handler dependency. 
 You must wrap your overall application in the GestureHandlerRootView in order to have the animations work properly. 
 React Native Gesture Handler -> [documentation](https://docs.swmansion.com/react-native-gesture-handler/docs/fundamentals/installation)
 
@@ -63,12 +63,12 @@ from '@browntreebear/reactnativesharedui/components'
 Note: Application must be wrapped in <GestureHandlerRootView/> from the 'react-native-gesture-handler' package
 listed above in order to use these components
 
--**TabBar**
+-**NowPlayingTabBar**
 - note: this was built with routing built on @react-navigation/native
     -make sure content above (each tab) the nav bar has a style of flex: 1 to push the navbar to the bottom of the page
 
 ```bash
-import { TabBar } 
+import { NowPlayingTabBar } 
 from '@browntreebear/reactnativesharedui/animations'
 
 const tabs = [
@@ -105,7 +105,7 @@ const tabs = [
         })}
     </View>
     <View style={styles.tabBar}>
-        <TabBar 
+        <NowPlayingTabBar 
             tabs={tabs} 
             onTabChange={handleTabNavigation} 
             backGroundColor="#10001A" 

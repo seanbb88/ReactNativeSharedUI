@@ -13,31 +13,14 @@ import {
 } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import * as shape from 'd3-shape';
-import { NOW_PLAYING_TAB_COUNT } from '../../constants';
+import { UNTITLED_TAB_COUNT } from '../../constants';
 import { TabButton } from './TabButton';
+import { ActiveIconProps, TabBarProps, TabProps } from './NowPlayingTabs';
 
 const { width } = Dimensions.get('window');
 
-interface TabBarProps {
-    tabs: TabProps[];
-    backGroundColor?: any;
-    onTabChange: (tabIndex: number) => void;
-    activeRoute: string;
-}
 
-interface TabProps {
-    name: string;
-    item: any;
-}
-
-type ActiveIconProps = {
-    item: any;
-    index: number;
-    activeIndex: Animated.SharedValue<number>;
-    width: number;
-};
-
-const tabWidth = width / NOW_PLAYING_TAB_COUNT;
+const tabWidth = width / UNTITLED_TAB_COUNT;
 
 const getPath = () => {
     const tab = shape.line().curve(shape.curveBasis)([
@@ -173,7 +156,7 @@ const tabBarStyles = StyleSheet.create({
     },
 });
 
-export default function TabBar({ tabs, backGroundColor = 'black', onTabChange, activeRoute }: TabBarProps) {
+export default function UntitledTabBar({ tabs, backGroundColor = 'black', onTabChange, activeRoute }: TabBarProps) {
     if (!tabs) return null;
     return (
         <View style={[tabBarStyles.container, { backgroundColor: backGroundColor }]}>

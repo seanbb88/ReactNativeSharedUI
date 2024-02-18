@@ -9,7 +9,7 @@ import Iconicons from '@expo/vector-icons/Ionicons'
 // AVAILABLE COMPONENTS - HIDE/SHOW BY COMMENTING THEM OUT
 import AppButton from './components/Button/Button';
 import { AppTitle, FullScreenLoader, MiniModal, PaqeLoader } from './components';
-import { TabBar, FadeView, LiquidSwipe, AnimatedInput, NowPlayingLoader, BreathingView } from './animations';
+import { NowPlayingTabBar, UntitledTabBar, FadeView, LiquidSwipe, AnimatedInput, NowPlayingLoader, BreathingView } from './animations';
 import AnimatedToggle from './animations/toggle/AnimatedToggle/AnimatedToggle';
 
 
@@ -24,12 +24,8 @@ const tabs = [
     item: <Iconicons color="black" size={25} name="home-outline" />,
   },
   {
-    name: 'MyList',
-    item: <Iconicons color="black" size={25} name="list-outline" />,
-  },
-  {
-    name: 'Settings',
-    item: <Iconicons color="black" size={25} name="people-outline" />,
+    name: 'Home',
+    item: <Iconicons color="black" size={25} name="home-outline" />,
   },
 ];
 
@@ -116,7 +112,7 @@ export default function App() {
       </View>
 
       {/* TABS */}
-      <TabBar tabs={tabs} backGroundColor="#255433" onTabChange={handleTabbyShit} activeRoute='Home' />
+      <UntitledTabBar tabs={tabs} backGroundColor="#255433" onTabChange={handleTabbyShit} activeRoute='Home' />
     </GestureHandlerRootView>
   );
 }
