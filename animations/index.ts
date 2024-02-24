@@ -6,6 +6,7 @@ import UntitledTabBar from './tabs/UntitledTabs';
 import { AnimatedInput } from './input/AnimatedInput'
 import { AnimatedToggle } from './toggle/AnimatedToggle/AnimatedToggle'
 import { NowPlayingLoader } from './loaders/NowPlaying/NowPlayingLoader'
+import { UntitledAppLoader } from './loaders/UntitiledApp/UntitledAppLoader'
 import { BreathingView } from './breathing/BreathingView'
 
-export { AnimatedToggle, FadeView, SwipeableList, LiquidSwipe, NowPlayingTabBar, UntitledTabBar, AnimatedInput, NowPlayingLoader, BreathingView }
+export { AnimatedToggle, FadeView, SwipeableList, LiquidSwipe, NowPlayingTabBar, UntitledTabBar, AnimatedInput, NowPlayingLoader, UntitledAppLoader, BreathingView }

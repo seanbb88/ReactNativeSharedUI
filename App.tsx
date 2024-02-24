@@ -9,7 +9,7 @@ import Iconicons from '@expo/vector-icons/Ionicons'
 // AVAILABLE COMPONENTS - HIDE/SHOW BY COMMENTING THEM OUT
 import AppButton from './components/Button/Button';
 import { AppTitle, FullScreenLoader, MiniModal, PaqeLoader } from './components';
-import { NowPlayingTabBar, UntitledTabBar, FadeView, LiquidSwipe, AnimatedInput, NowPlayingLoader, BreathingView } from './animations';
+import { NowPlayingTabBar, UntitledTabBar, FadeView, LiquidSwipe, AnimatedInput, NowPlayingLoader, BreathingView, UntitledAppLoader } from './animations';
 import AnimatedToggle from './animations/toggle/AnimatedToggle/AnimatedToggle';
 
 
@@ -101,6 +101,7 @@ export default function App() {
         {/* <PaqeLoader /> */}
         {/* <ApplicationLoader /> */}
         {/* <FullScreenLoader visible={true} /> */}
+        <UntitledAppLoader />
         {/* <NowPlayingLoader /> */}
 
         {/* ANIMATIONS */}
