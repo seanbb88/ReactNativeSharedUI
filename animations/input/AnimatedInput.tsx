@@ -9,6 +9,7 @@ interface AnimatedInputProps {
     inputColor?: string;
     obviscateText?: boolean;
     onChangeText: (text: string) => void;
+    onBlur?: () => void;
 }
 
 export const AnimatedInput = ({
@@ -18,6 +19,7 @@ export const AnimatedInput = ({
     inputColor = 'white',
     obviscateText = false,
     onChangeText,
+    onBlur
 }: AnimatedInputProps) => {
     const [_isFocused, setIsFocused] = useState(false);
 
@@ -38,6 +40,9 @@ export const AnimatedInput = ({
                 duration: 200,
                 easing: Easing.ease,
             });
+        }
+        if (onBlur) {
+            onBlur();
         }
     };
 
